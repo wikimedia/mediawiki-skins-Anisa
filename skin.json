@@ -1,0 +1,54 @@
+{
+	"name": "Anisa",
+	"version": "1.0",
+	"author": "...",
+	"url": "https://www.mediawiki.org/wiki/Skin:Anisa",
+	"descriptionmsg": "anisa-desc",
+	"namemsg": "skinname-anisa",
+	"license-name": "CC0-1.0",
+	"type": "skin",
+	"ValidSkinNames": {
+		"anisa": "Anisa"
+	},
+	"MessagesDirs": {
+		"Anisa": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"skins.anisa": {
+			"class": "ResourceLoaderSkinModule",
+			"styles": {
+				"resources/libraries/normalise.css": {
+					"media": "screen"
+				},
+				"resources/screen-common.less": {
+					"media": "screen"
+				},
+				"resources/screen-desktop.less": {
+					"media": "screen and (min-width: 751px)"
+				},
+				"resources/screen-mobile.less": {
+					"media": "screen and (max-width: 750px)"
+				},
+				"resources/print.css": {
+					"media": "print"
+				}
+			}
+		},
+		"skins.anisa.js": {
+			"scripts": [
+				"resources/main.js"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "Anisa"
+	},
+	"AutoloadClasses": {
+		"SkinAnisa": "includes/SkinAnisa.php",
+		"AnisaTemplate": "includes/AnisaTemplate.php"
+	},
+	"manifest_version": 1
+}
