@@ -13,73 +13,92 @@ class AnisaTemplate extends BaseTemplate {
 		$html .= $this->get( 'headelement' );
 
 		$html .= Html::rawElement( 'div', [ 'id' => 'mw-wrapper' ],
-			Html::rawElement( 'div', [ 'class' => 'mw-body', 'role' => 'main' ],
-				$this->getIfExists( 'sitenotice', [
-					'wrapper' => 'div',
-					'parameters' => [ 'id' => 'siteNotice' ]
-				] ) .
-				$this->getIfExists( 'newtalk', [
-					'wrapper' => 'div',
-					'parameters' => [ 'class' => 'usermessage' ]
-				] ) .
-				$this->getIndicators() .
-				Html::rawElement( 'h1',
-					[
-						'class' => 'firstHeading',
-						'lang' => $this->get( 'pageLanguage' )
-					],
-					$this->get( 'title' )
+			Html::rawElement( 'div', [ 'id' => 'column-content' ],
+				Html::rawElement( 'div', [ 'id' => 'header' ],
+					$this->getBanner() .
+					$this->getUserLinks() .
+					$this->getSearch() .
+					$this->getClear()
 				) .
-				Html::rawElement( 'div', [ 'id' => 'siteSub' ],
-					$this->getMsg( 'tagline' )->parse()
-				) .
-				Html::rawElement( 'div', [ 'class' => 'mw-body-content' ],
-					Html::rawElement( 'div', [ 'id' => 'contentSub' ],
-						$this->getIfExists( 'subtitle', [ 'wrapper' => 'p' ] ) .
-						Html::rawElement(
-							'p',
-							[],
-							$this->get( 'undelete' )
+				Html::rawElement( 'div', [ 'id' => 'content-container-container' ],
+				Html::rawElement( 'div', [ 'id' => 'content-container' ],
+				Html::rawElement( 'div', [ 'id' => 'content' ],
+					// Page editing and tools
+					Html::rawElement(
+						'div',
+						[ 'id' => 'page-tools' ],
+						$this->getPageLinks()
+					) .
+					Html::rawElement( 'div', [ 'class' => 'mw-body', 'role' => 'main' ],
+						$this->getIfExists( 'sitenotice', [
+							'wrapper' => 'div',
+							'parameters' => [ 'id' => 'siteNotice' ]
+						] ) .
+						$this->getIfExists( 'newtalk', [
+							'wrapper' => 'div',
+							'parameters' => [ 'class' => 'usermessage' ]
+						] ) .
+						$this->getIndicators() .
+						Html::rawElement( 'div', [ 'id' => 'firstHeading-container' ],
+							Html::rawElement( 'h1',
+								[
+									'class' => 'firstHeading',
+									'lang' => $this->get( 'pageLanguage' )
+								],
+								$this->get( 'title' )
+							)
+						) .
+						Html::rawElement( 'div', [ 'id' => 'siteSub' ],
+							$this->getMsg( 'tagline' )->parse()
+						) .
+						Html::rawElement( 'div', [ 'class' => 'mw-body-content' ],
+							Html::rawElement( 'div', [ 'id' => 'contentSub' ],
+								$this->getIfExists( 'subtitle', [ 'wrapper' => 'p' ] ) .
+								Html::rawElement(
+									'p',
+									[],
+									$this->get( 'undelete' )
+								)
+							) .
+							$this->get( 'bodycontent' ) .
+							$this->getClear() .
+							Html::rawElement( 'div', [ 'class' => 'printfooter' ],
+								$this->get( 'printfooter' )
+							) .
+							$this->getIfExists( 'catlinks' ) .
+							$this->getIfExists( 'dataAfterContent' ) .
+							$this->get( 'debughtml' )
 						)
-					) .
-					$this->get( 'bodycontent' ) .
-					$this->getClear() .
-					Html::rawElement( 'div', [ 'class' => 'printfooter' ],
-						$this->get( 'printfooter' )
-					) .
-					$this->getIfExists( 'catlinks' ) .
-					$this->getIfExists( 'dataAfterContent' ) .
-					$this->get( 'debughtml' )
-				)
+					)
+				) .
+				Html::element( 'div', [ 'id' => 'lright1', 'class' => 'right-line' ] ) .
+				Html::element( 'div', [ 'id' => 'lright2', 'class' => 'right-line' ] ) .
+				Html::element( 'div', [ 'id' => 'lright3', 'class' => 'right-line' ] )
+				) .
+				Html::rawElement( 'div', [ 'id' => 'content-footer-container' ],
+					Html::rawElement( 'div', [ 'id' => 'content-footer' ],
+						$this->getMsg( 'content-footer' )->parse() .
+						$this->getClear()
+					)
+				) ) .
+				$this->getFooterBlock()
 			) .
-			Html::rawElement( 'div', [ 'id' => 'mw-navigation' ],
-				Html::rawElement(
-					'h2',
-					[],
-					$this->getMsg( 'navigation-heading' )->parse()
-				) .
-				$this->getLogo() .
-				$this->getSearch() .
-				// User profile links
-				Html::rawElement(
-					'div',
-					[ 'id' => 'user-tools' ],
-					$this->getUserLinks()
-				) .
-				// Page editing and tools
-				Html::rawElement(
-					'div',
-					[ 'id' => 'page-tools' ],
-					$this->getPageLinks()
-				) .
-				// Site navigation/sidebar
-				Html::rawElement(
-					'div',
-					[ 'id' => 'site-navigation' ],
-					$this->getSiteNavigation()
+			Html::rawElement( 'div', [ 'id' => 'column-navigation' ],
+				Html::rawElement( 'div', [ 'id' => 'mw-navigation' ],
+					Html::rawElement(
+						'h2',
+						[],
+						$this->getMsg( 'navigation-heading' )->parse()
+					) .
+					$this->getLogo() .
+					// Site navigation/sidebar
+					Html::rawElement(
+						'div',
+						[ 'id' => 'site-navigation' ],
+						$this->getSiteNavigation()
+					)
 				)
-			) .
-			$this->getFooterBlock()
+			)
 		);
 
 		$html .= $this->getTrail();
@@ -93,7 +112,7 @@ class AnisaTemplate extends BaseTemplate {
 	 * Generates the logo and (optionally) site title
 	 * @return string html
 	 */
-	protected function getLogo( $id = 'p-logo', $imageOnly = false ) {
+	protected function getLogo( $id = 'p-logo' ) {
 		$html = Html::openElement(
 			'div',
 			[
@@ -109,18 +128,21 @@ class AnisaTemplate extends BaseTemplate {
 				'class' => 'mw-wiki-logo',
 			] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
 		);
-		if ( !$imageOnly ) {
-			$html .= Html::element(
-				'a',
-				[
-					'id' => 'p-banner',
-					'class' => 'mw-wiki-title',
-					'href' => $this->data['nav_urls']['mainpage']['href']
-				] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' ),
-				$this->getMsg( 'sitetitle' )->text()
-			);
-		}
 		$html .= Html::closeElement( 'div' );
+
+		return $html;
+	}
+
+	protected function getBanner( $id = 'p-banner' ) {
+		$html = Html::element(
+			'a',
+			[
+				'id' => $id,
+				'class' => 'mw-wiki-title',
+				'href' => $this->data['nav_urls']['mainpage']['href']
+			] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' ),
+			$this->getMsg( 'sitetitle' )->text()
+		);
 
 		return $html;
 	}
@@ -211,34 +233,93 @@ class AnisaTemplate extends BaseTemplate {
 		);
 		// Variants: Language variants. Displays list for converting between different scripts in the same language,
 		// if using a language where this is applicable.
-		$html .= $this->getPortlet(
-			'variants',
-			$this->data['content_navigation']['variants']
-		);
+		if ( $this->data['content_navigation']['variants'] ) {
+			$html .= $this->getPortlet(
+				'variants',
+				$this->data['content_navigation']['variants']
+			);
+		}
+		// Other actions for the page: move, delete, protect, everything else
+		if ( $this->data['content_navigation']['actions'] ) {
+			$html .= $this->getPortlet(
+				'actions',
+				$this->data['content_navigation']['actions']
+			);
+		}
 		// 'View' actions for the page: view, edit, view history, etc
 		$html .= $this->getPortlet(
 			'views',
 			$this->data['content_navigation']['views']
 		);
-		// Other actions for the page: move, delete, protect, everything else
-		$html .= $this->getPortlet(
-			'actions',
-			$this->data['content_navigation']['actions']
-		);
+
+		$html .= $this->getClear();
 
 		return $html;
 	}
 
 	/**
-	 * Generates user tools menu
-	 * @return string html
+	 * Personal/user links portlet for header
+	 *
+	 * @return array [ html, class ], where class is an extra class to apply to surrounding objects
+	 * (for width adjustments)
 	 */
 	protected function getUserLinks() {
-		return $this->getPortlet(
-			'personal',
-			$this->getPersonalTools(),
-			'personaltools'
-		);
+		$user = $this->getSkin()->getUser();
+		$personalTools = $this->getPersonalTools();
+
+		$html = '';
+		$extraTools = [];
+
+		// Remove Echo badges
+		if ( isset( $personalTools['notifications-alert'] ) ) {
+			$extraTools['notifications-alert'] = $personalTools['notifications-alert'];
+			unset( $personalTools['notifications-alert'] );
+		}
+		if ( isset( $personalTools['notifications-notice'] ) ) {
+			$extraTools['notifications-notice'] = $personalTools['notifications-notice'];
+			unset( $personalTools['notifications-notice'] );
+		}
+		// Remove ULS trigger
+		if ( isset( $personalTools['uls'] ) ) {
+			$extraTools['uls'] = $personalTools['uls'];
+			unset( $personalTools['uls'] );
+		}
+
+		// Re-label some messages
+		if ( isset( $personalTools['userpage'] ) ) {
+			$personalTools['userpage']['links'][0]['text'] = $this->getMsg( 'anisa-userpage' )->text();
+		}
+		if ( isset( $personalTools['mytalk'] ) ) {
+			$personalTools['mytalk']['links'][0]['text'] = $this->getMsg( 'anisa-talkpage' )->text();
+		}
+
+		// Dropdown header
+		if ( $user->isLoggedIn() ) {
+			$headerMsg = [ 'anisa-loggedinas', $user->getName() ];
+		} else {
+			$headerMsg = [ 'anisa-notloggedin', $user->getName() ];
+		}
+		$html .= Html::openElement( 'div', [ 'id' => 'user-tools' ] );
+
+		// Extra icon/outside stuff (echo etc)
+		if ( !empty( $extraTools ) ) {
+			$iconList = '';
+			foreach ( $extraTools as $key => $item ) {
+				$iconList .= $this->makeListItem( $key, $item );
+			}
+
+			$html .= Html::rawElement(
+				'div',
+				[ 'id' => 'p-personal-extra', 'class' => 'p-body' ],
+				Html::rawElement( 'ul', [], $iconList )
+			);
+		}
+
+		$html .= $this->getPortlet( 'personal', $personalTools, $headerMsg );
+
+		$html .= Html::closeElement( 'div' );
+
+		return $html;
 	}
 
 	/**

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="890"
+   height="1.0000252"
+   viewBox="0 0 235.47917 0.26458999"
+   version="1.1"
+   id="svg1673"
+   sodipodi:docname="longlong-ltr.svg"
+   inkscape:version="0.92.2 2405546, 2018-03-11">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1888"
+     inkscape:window-height="1082"
+     id="namedview7"
+     showgrid="true"
+     inkscape:zoom="22.627417"
+     inkscape:cx="25.428481"
+     inkscape:cy="-4.1321248"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1673"
+     inkscape:snap-midpoints="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid814"
+       originx="117.73959"
+       originy="-117.475" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1667" />
+  <metadata
+     id="metadata1670">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="translate(69.616148,-139.76189)" />
+  <path
+     style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.26458335px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 0,0.1323 C 2.6458388,0.26458881 8.9958389,0.26458881 13.229172,0.26458881 L 136.26042,0.26459 c 33.07292,-0.0441 80.69792,0 99.21875,-0.13229 C 216.95834,0 169.33334,0.0441 136.26042,0 L 13.229172,5.4773961e-6 c -4.2333397,0 -10.5833332,0 -13.229172,0.1322945226039 z"
+     id="path816"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccccc" />
+</svg>

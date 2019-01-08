@@ -1,10 +1,63 @@
-// @import "mediawiki.mixins"; Not used yet
+@import "mediawiki.mixins";
 
-@width: 66em;
-@border: #ccc;
+@scale: .8em;
+
+.header-fonts {
+	font-family: serif;
+	font-variant: small-caps;
+	font-weight: 300;
+}
 
 // To hide objects, but keep them accessible for screen-readers
 .hidden() {
 	position: absolute;
 	top: -9999px;
+}
+
+// Quick dropdown menu
+.dropdown() {
+	position: relative;
+
+	h3 {
+		position: relative;
+		top: 0;
+		font-weight: normal;
+		font-size: 1em;
+		padding: 0;
+		margin: 0;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.mw-portlet-body {
+		display: none;
+		position: absolute;
+		top: 1.25em;
+		right: -.75em;
+		z-index: 5;
+		background: #fff;
+		border: solid 1px #000;
+		padding: 1.5em 2em 1.5em 1em;
+		text-align: right;
+
+		ul {
+			margin: 0;
+		}
+
+		li {
+			list-style: none;
+		}
+
+		a {
+			display: block;
+			padding: .5em ;
+		}
+
+	}
+
+	&:hover .mw-portlet-body {
+		display: block;
+	}
 }

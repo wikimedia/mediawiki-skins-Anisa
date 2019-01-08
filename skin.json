@@ -5,7 +5,7 @@
 	"url": "https://www.mediawiki.org/wiki/Skin:Anisa",
 	"descriptionmsg": "anisa-desc",
 	"namemsg": "skinname-anisa",
-	"license-name": "CC0-1.0",
+	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"ValidSkinNames": {
 		"anisa": "Anisa"

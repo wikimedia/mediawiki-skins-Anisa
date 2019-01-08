@@ -2,14 +2,21 @@
 
 @import "variables.less";
 
-#site-navigation {
-	ul {
-		list-style-type: none;
-		margin: 0;
-	}
+// Two-column layout
+#mw-wrapper {
+	.flex-display;
+	clear: both;
+	padding-left: 3px;
+}
 
-	li {
-		padding-right: 1em;
-		display: inline-block;
-	}
+#column-navigation {
+	width: 12em;
+	.flex(0, 0, 11em, 1);
+	padding: 0 2em 0 0;
+}
+
+#column-content {
+	.flex(1, 1, auto, 2);
+	// Make word wrapping, max-width percentages, etc work with the above flex
+	min-width: 70%;
 }

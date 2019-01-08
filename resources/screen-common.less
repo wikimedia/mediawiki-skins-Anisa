@@ -2,41 +2,375 @@
 
 @import "variables.less";
 
+// hidden stuff
+#mw-navigation h2,
+#page-tools h3,
+#p-search h3,
+#p-personal h3 {
+	.hidden;
+}
+
 // Page layout
 
-#mw-wrapper {
-	max-width: @width;
-	margin: 0 auto;
-	position: relative;
-	padding: 1em;
+body {
+	background: #e0e4e4 url( 'images/bkgd.gif' ) repeat;
+	font-family: sans-serif;
+	line-height: 1.5;
+	font-size: @scale;
 }
+
+#mw-wrapper {
+	max-width: 90em;
+	margin: .5em auto 1.5em;
+	position: relative;
+	padding: 0 25px;
+	overflow: hidden;
+}
+
+#header,
+#footer,
+#content-footer,
+#column-navigation,
+#page-tools,
+#contentSub {
+	font-size: @scale;
+	line-height: 1.2;
+
+	a {
+		color: #345;
+
+		&:visited {
+			color: darken( #345, 10% );
+		}
+	}
+
+	.new a,
+	a.new {
+		color: #533;
+
+		&:visited {
+			color: darken( #533, 10% );
+		}
+	}
+}
+
+#header,
+#footer,
+#column-navigation {
+	position: relative;
+	z-index: 2;
+}
+
+// Top stuff
+
+#p-actions,
+#p-personal,
+#p-variants {
+	.dropdown();
+}
+
+a#p-banner {
+	display: inline-block;
+	font-size: 3em;
+	line-height: 1;
+	color: #000;
+	.header-fonts();
+	background: url( 'images/med-ltr.svg' ) no-repeat 0 100%;
+	min-width: 355px;
+	padding: 0 0 0 .5em;
+	margin: .5em 0 .75em .5em;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+#user-tools {
+	position: absolute;
+	right: 1em;
+	top: .5em;
+	padding: 0 1em .25em 2em;
+	background: url( 'images/short-rtl.svg' ) no-repeat 100% 100%;
+}
+
+#p-personal,
+#p-personal h3,
+#p-personal-extra,
+#p-personal-extra ul,
+#p-personal-extra li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	white-space: nowrap;
+}
+
+#p-personal-extra li,
+#p-personal h3 {
+	padding-left: 2em;
+}
+
+#p-search {
+	position: absolute;
+	right: 1em;
+	top: 3.5em;
+	background: url( 'images/med-rtl.svg' ) no-repeat 100% 92%;
+	margin-right: -2em;
+	padding: 0 2.5em .5em 13.5em;
+
+	input {
+		background-color: transparent;
+		border: none;
+	}
+
+	.searchButton {
+		background: #f6f6f6;
+		border: solid 1px #aaa;
+		color: #222;
+		padding: 2px 10px;
+		border-radius: 2px;
+		font-size: 1.2em;
+	}
+}
+
+#searchInput {
+	padding: .35em .5em;
+	background: url( 'images/short-ltr.svg' ) no-repeat 0 100%;
+}
+
+// Sidebar stuff
 
 #p-logo {
 	text-align: center;
-	width: 10em;
-	float: right;
+	width: 7.5em;
+	background: none;
 
 	// Make logo image visible
 	// The class sets the background image from $wgLogo, but we still need to give it a size in order to show up
 	a.mw-wiki-logo {
 		display: block;
 		content: '';
-		width: 10em;
-		height: 10em;
+		width: 7,5em;
+		height: 7.5em;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
+		background-size: contain;
 	}
+}
+
+#mw-navigation {
+	#site-navigation {
+		background: url( 'images/med-td.svg' ) no-repeat 20px -10px;
+	}
+
+	.mw-portlet {
+		background: url( 'images/short-td.svg' ) no-repeat 20px 0;
+	}
+
+	#p-logo {
+		background-position: 20px 70px;
+		padding: 1em 2.5em 2em 3em;
+	}
+
+	.mw-portlet-body {
+		background: url( 'images/short-td.svg' ) no-repeat 17px 0,
+			url( 'images/short-ltr.svg' ) no-repeat 0 5px;
+		padding: .75em 0 0 26px;
+	}
+
+	h3 {
+		.header-fonts;
+		line-height: 1;
+		padding: 0 0 0 26px;
+		margin: 0;
+	}
+
+	li {
+		padding: .3em 0;
+		list-style: none;
+	}
+
+	ul {
+		margin: 0 0 3em;
+	}
+
+}
+
+// Main block
+
+#content-container-container {
+	position: relative;
+	z-index: 1;
+	margin: 0 -25px 0 0;
+	padding: 0 25px 0 0;
+	background: url( 'images/long-ltr.svg' ) no-repeat 5px 27px,
+		url( 'images/short-rtl.svg' ) no-repeat 98.5% 30px,
+		url( 'images/long-rtl.svg' ) no-repeat 100% 50px,
+		url( 'images/long-bu.svg' ) no-repeat 0 100%,
+		url( 'images/med-ltr.svg' ) no-repeat 45px 100%;
+}
+
+#content-container {
+	position: relative;
+	margin: -30px 0 0 -25px;
+	padding: 30px 0 0 25px;
+	background: url( 'images/longlong-ltr.svg' ) no-repeat 5px 30px,
+		url( 'images/long-ltr.svg' ) no-repeat 13px 27px,
+		url( 'images/long-td.svg' ) no-repeat 25px 8px,
+		url( 'images/med-td.svg' ) no-repeat 27px 0,
+		url( 'images/short-td.svg' ) no-repeat 22px 45px,
+		url( 'images/long-td.svg' ) no-repeat 100% 10px,
+		url( 'images/long-ltr.svg' ) no-repeat 0 100%;
+
+}
+
+#content-footer-container {
+	min-height: .75em;
+	margin: 0 -25px 0 -25px;
+	padding: 0 25px 0 25px;
+	background:
+		url( 'images/med-ltr.svg' ) no-repeat 7px 2px,
+		url( 'images/short-rtl.svg' ) no-repeat 99% 0px,
+		;
+
+}
+
+#content-footer {
+	margin: -1px 0 0;
+	padding: .6em 10em .5em 8em;
+}
+
+#content {
+	background: url( 'images/med-td.svg' ) no-repeat 16px 60px,
+		url( 'images/long-td.svg' ) no-repeat 100% -20px,
+		url( 'images/long-rtl.svg' ) no-repeat 150% 19px,
+		url( 'images/med-ltr.svg' ) no-repeat 8px 19px,
+		url( 'images/med-td.svg' ) no-repeat 1px -30px;
+	background-color: #fff;
+	padding: .25em 2em 1.5em;
+	border: solid #000;
+	border-width: 1px 0 1px 1px;
+}
+
+// Stupid right-side lines
+.right-line {
+	width: 1px;
+	position: absolute;
+	content: '';
+}
+#lright1 {
+	background: url( 'images/longlong-td.svg' ) no-repeat;
+	height: 890px;
+	right: 2px;
+	top: -20px;
+}
+
+#lright2 {
+	background: url( 'images/long-bu.svg' ) no-repeat;
+	height: 760px;
+	right: 0;
+	bottom: -10px;
+}
+
+#lright3 {
+	background: url( 'images/med-bu.svg' ) no-repeat;
+	height: 355px;
+	right: 2px;
+	bottom: -18px;
 }
 
 .mw-body {
 	position: relative;
 	word-wrap: break-word;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		.header-fonts;
+		color: #235;
+	}
+
+	h1 {
+		background: url( 'images/long-ltr.svg' ) no-repeat 0 100%,
+			url( 'images/med-ltr.svg' ) no-repeat 5px 95%;
+	}
+
+	h2 {
+		background: url( 'images/med-ltr.svg' ) no-repeat 5px 96%;
+	}
+
+	h3 {
+		background: url( 'images/short-ltr.svg' ) no-repeat 7px 100%;
+	}
+
+	h1,
+	h2,
+	h3 {
+		border-bottom: none;
+		margin-left: -15px;
+		padding: .5em 0 0 15px;
+	}
+
+	h1.firstHeading {
+		margin-top: .75em;
+		padding-left: 0;
+		background: none;
+	}
+}
+
+#firstHeading-container {
+	margin: 0 0 0 -25px;
+	padding: 0 0 0 25px;
+	background: url( 'images/longlong-ltr.svg' ) no-repeat 0 94%,
+		url( 'images/long-ltr.svg' ) no-repeat 5px 100%;
+}
+
+.mw-editsection {
+	font-family: sans-serif;
+	font-variant: normal;
+}
+
+
+#p-namespaces,
+#p-namespaces div,
+#p-namespaces ul,
+#p-namespaces li,
+#p-views,
+#p-views div,
+#p-views ul,
+#p-views li,
+#p-variants,
+#p-variants h3,
+#p-actions,
+#p-actions h3 {
+	display: inline;
+	margin: 0;
+	padding: .125em 0 0;
+	white-space: nowrap;
+}
+
+#p-namespaces li,
+#p-variants h3 {
+	padding-right: 2em;
+}
+#p-namespaces,
+#p-variants {
+	float: left;
+}
+
+#p-views li,
+#p-actions h3 {
+	padding-left: 2em;
+}
+
+#p-views,
+#p-actions {
+	float: right;
 }
 
 // Some content stuff
-.firstHeading {
-	margin-top: 0;
-}
 
 .mw-indicators {
 	float: right;
@@ -53,50 +387,31 @@ pre {
 	margin: auto;
 	text-align: center;
 }
-
-// Splatter the menus and tools at the bottom
-#mw-footer,
-#page-tools,
-#p-personal {
-	margin: 1em 0;
-
-	ul {
-		list-style-type: none;
-		margin: 0;
-	}
-
-	li {
-		padding-right: 1em;
-		display: inline-block;
-	}
-}
-
-#page-tools .mw-portlet {
-	display: inline-block;
-}
-
 #mw-navigation {
 	margin: 1em 0;
 }
 
 // Footer
-#mw-footer {
+#footer {
 	clear: both;
-	border-top: 1px solid @border;
 
 	ul {
-		margin-top: 1em;
+		display: inline-block;
+		margin: 2em 0 0 1em;
+	}
+
+	li {
+		list-style: none;
+		margin-left: 2em;
+		display: inline-block;
 	}
 }
 
 #footer-icons {
 	float: right;
-	margin: 0 0 1em 1em;
-}
+	margin: .5em 2em 1em 1em;
 
-// hidden stuff
-#page-tools h3,
-#p-search h3,
-#p-personal h3 {
-	.hidden;
+	div {
+		margin-left: 1.5em;
+	}
 }
