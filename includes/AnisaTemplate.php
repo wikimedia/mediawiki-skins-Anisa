@@ -533,9 +533,9 @@ class AnisaTemplate extends BaseTemplate {
 
 		$iconsHTML = '';
 		if ( count( $validFooterIcons ) > 0 ) {
-			$iconsHTML .= Html::openElement( 'div', [ 'id' => "{$options['link-prefix']}-icons" ] );
+			$iconsHTML .= Html::openElement( 'ul', [ 'id' => "{$options['link-prefix']}-icons" ] );
 			foreach ( $validFooterIcons as $blockName => $footerIcons ) {
-				$iconsHTML .= Html::openElement( 'div', [
+				$iconsHTML .= Html::openElement( 'li', [
 					'id' => Sanitizer::escapeIdForAttribute(
 						"{$options['link-prefix']}-{$blockName}ico"
 					),
@@ -544,9 +544,9 @@ class AnisaTemplate extends BaseTemplate {
 				foreach ( $footerIcons as $icon ) {
 					$iconsHTML .= $this->getSkin()->makeFooterIcon( $icon );
 				}
-				$iconsHTML .= Html::closeElement( 'div' );
+				$iconsHTML .= Html::closeElement( 'li' );
 			}
-			$iconsHTML .= Html::closeElement( 'div' );
+			$iconsHTML .= Html::closeElement( 'ul' );
 		}
 
 		$linksHTML = '';
