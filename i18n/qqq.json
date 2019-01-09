@@ -7,5 +7,6 @@
 	"anisa-userpage": "User page/profile link label in the personal menu\n{{Identical|User page}}\nParameters:\n* $1 - username, used for GENDER",
 	"anisa-talkpage": "Talk page link label in the personal menu.\nParameters:\n* $1 - username, used for GENDER",
 	"anisa-loggedinas": "{{ignore}}\nHeader for logged in user menu",
-	"anisa-notloggedin": "{{ignore}}\nHeader for anonymous user menu"
+	"anisa-notloggedin": "{{ignore}}\nHeader for anonymous user menu",
+	"content-footer": "{{ignore}}\nOptional footer content to display after the page content."
 }

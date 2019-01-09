@@ -401,7 +401,7 @@ class AnisaTemplate extends BaseTemplate {
 			$msgString = htmlspecialchars( $msg );
 		}
 
-		$labelId = htmlspecialchars( Sanitizer::escapeIdForAttribute( "p-$name-label" ) );
+		$labelId = Sanitizer::escapeIdForAttribute( "p-$name-label" );
 
 		if ( is_array( $content ) ) {
 			$contentText = Html::openElement( 'ul',

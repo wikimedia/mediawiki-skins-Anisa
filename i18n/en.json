@@ -7,5 +7,6 @@
 	"anisa-userpage": "User page",
 	"anisa-talkpage": "Talkpage",
 	"anisa-loggedinas": "$1",
-	"anisa-notloggedin": "$1"
+	"anisa-notloggedin": "$1",
+	"content-footer": ""
 }
