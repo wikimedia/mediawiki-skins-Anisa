@@ -30,14 +30,8 @@ class AnisaTemplate extends BaseTemplate {
 						$this->getPageLinks()
 					) .
 					Html::rawElement( 'div', [ 'class' => 'mw-body', 'role' => 'main' ],
-						$this->getIfExists( 'sitenotice', [
-							'wrapper' => 'div',
-							'parameters' => [ 'id' => 'siteNotice' ]
-						] ) .
-						$this->getIfExists( 'newtalk', [
-							'wrapper' => 'div',
-							'parameters' => [ 'class' => 'usermessage' ]
-						] ) .
+						$this->getSiteNotice() .
+						$this->getNewTalk() .
 						$this->getIndicators() .
 						Html::rawElement( 'div', [ 'id' => 'firstHeading-container' ],
 							Html::rawElement( 'h1',
@@ -53,7 +47,7 @@ class AnisaTemplate extends BaseTemplate {
 						) .
 						Html::rawElement( 'div', [ 'class' => 'mw-body-content' ],
 							Html::rawElement( 'div', [ 'id' => 'contentSub' ],
-								$this->getIfExists( 'subtitle', [ 'wrapper' => 'p' ] ) .
+								$this->getPageSubtitle() .
 								Html::rawElement(
 									'p',
 									[],
@@ -65,8 +59,8 @@ class AnisaTemplate extends BaseTemplate {
 							Html::rawElement( 'div', [ 'class' => 'printfooter' ],
 								$this->get( 'printfooter' )
 							) .
-							$this->getIfExists( 'catlinks' ) .
-							$this->getIfExists( 'dataAfterContent' ) .
+							$this->getCategoryLinks() .
+							$this->getDataAfterContent() .
 							$this->get( 'debughtml' )
 						)
 					)
@@ -109,6 +103,52 @@ class AnisaTemplate extends BaseTemplate {
 	}
 
 	/**
+	 * Generates siteNotice, if any
+	 * @return string html
+	 */
+	protected function getSiteNotice() {
+		return $this->getIfExists( 'sitenotice', [
+			'wrapper' => 'div',
+			'parameters' => [ 'id' => 'siteNotice' ]
+		] );
+	}
+
+	/**
+	 * Generates new talk message banner, if any
+	 * @return string html
+	 */
+	protected function getNewTalk() {
+		return $this->getIfExists( 'newtalk', [
+			'wrapper' => 'div',
+			'parameters' => [ 'class' => 'usermessage' ]
+		] );
+	}
+
+	/**
+	 * Generates subtitle stuff, if any
+	 * @return string html
+	 */
+	protected function getPageSubtitle() {
+		return $this->getIfExists( 'subtitle', [ 'wrapper' => 'p' ] );
+	}
+
+	/**
+	 * Generates category links, if any
+	 * @return string html
+	 */
+	protected function getCategoryLinks() {
+		return $this->getIfExists( 'catlinks' );
+	}
+
+	/**
+	 * Generates data after content stuff, if any
+	 * @return string html
+	 */
+	protected function getDataAfterContent() {
+		return $this->getIfExists( 'dataAfterContent' );
+	}
+
+	/**
 	 * Generates the logo and (optionally) site title
 	 * @return string html
 	 */
@@ -134,14 +174,17 @@ class AnisaTemplate extends BaseTemplate {
 	}
 
 	protected function getBanner( $id = 'p-banner' ) {
-		$html = Html::element(
+		$language = $this->getSkin()->getLanguage();
+		$siteTitle = $language->convert( $this->getMsg( 'sitetitle' )->escaped() );
+
+		$html = Html::rawElement(
 			'a',
 			[
 				'id' => $id,
 				'class' => 'mw-wiki-title',
 				'href' => $this->data['nav_urls']['mainpage']['href']
 			] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' ),
-			$this->getMsg( 'sitetitle' )->text()
+			$siteTitle
 		);
 
 		return $html;
