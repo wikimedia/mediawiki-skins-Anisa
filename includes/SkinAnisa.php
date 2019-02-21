@@ -12,7 +12,7 @@ class SkinAnisa extends SkinTemplate {
 	/**
 	 * Add CSS via ResourceLoader
 	 *
-	 * @param $out OutputPage
+	 * @param OutputPage $out
 	 */
 	public function initPage( OutputPage $out ) {
 		$out->addMeta( 'viewport',
@@ -31,7 +31,7 @@ class SkinAnisa extends SkinTemplate {
 	}
 
 	/**
-	 * @param $out OutputPage
+	 * @param OutputPage $out
 	 */
 	function setupSkinUserCss( OutputPage $out ) {
 		parent::setupSkinUserCss( $out );

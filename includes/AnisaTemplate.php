@@ -150,6 +150,7 @@ class AnisaTemplate extends BaseTemplate {
 
 	/**
 	 * Generates the logo and (optionally) site title
+	 * @param string $id
 	 * @return string html
 	 */
 	protected function getLogo( $id = 'p-logo' ) {
@@ -173,6 +174,11 @@ class AnisaTemplate extends BaseTemplate {
 		return $html;
 	}
 
+	/**
+	 * Generate the banner at the top of the file
+	 * @param string $id
+	 * @return string html
+	 */
 	protected function getBanner( $id = 'p-banner' ) {
 		$language = $this->getSkin()->getLanguage();
 		$siteTitle = $language->convert( $this->getMsg( 'sitetitle' )->escaped() );
