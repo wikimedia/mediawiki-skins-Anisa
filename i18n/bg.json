@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vlad5250"
+			"Vlad5250",
+			"StanProg"
 		]
 	},
+	"anisa-desc": "Прост облик подобен на MonoBook от преди, възстановен заради котката.",
 	"anisa-userpage": "Потребителска страница",
 	"anisa-talkpage": "Дискусионна страница"
 }
