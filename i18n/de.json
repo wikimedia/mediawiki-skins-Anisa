@@ -4,7 +4,8 @@
 			"Metalhead64"
 		]
 	},
-	"anisa-desc": "Eine einfache monobookähnliche Benutzeroberfläche aus vergangenen Zeiten, wiederbelebt, jedoch Katze.",
-	"anisa-userpage": "Benutzerseite",
-	"anisa-talkpage": "Diskussionsseite"
+	"desc": "Eine einfache monobookähnliche Benutzeroberfläche aus vergangenen Zeiten, wiederbelebt, jedoch Katze.",
+	"userpage": "Benutzerseite",
+	"talkpage": "Diskussionsseite",
+	"content-footer": ""
 }

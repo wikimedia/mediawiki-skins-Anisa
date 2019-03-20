@@ -5,7 +5,7 @@
 			"Gomoko"
 		]
 	},
-	"anisa-desc": "Un simple habillage semblable à MonoBook des âges passés, ressuscité à cause de cat.",
-	"anisa-userpage": "Page utilisateur",
-	"anisa-talkpage": "Page de discussion"
+	"desc": "Un simple habillage semblable à MonoBook des âges passés, ressuscité à cause de cat.",
+	"userpage": "Page utilisateur",
+	"talkpage": "Page de discussion"
 }
