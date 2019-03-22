@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Romanko Mikhail"
+			"Romanko Mikhail",
+			"Facenapalm"
 		]
 	},
-	"anisa-userpage": "Страница участника"
+	"anisa-userpage": "Страница участника",
+	"anisa-talkpage": "Страница обсуждения"
 }
