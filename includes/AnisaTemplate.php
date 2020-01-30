@@ -388,7 +388,7 @@ class AnisaTemplate extends BaseTemplate {
 
 		if ( $this->data[$object] ) {
 			// @phan-suppress-next-line PhanSuspiciousValueComparison
-			if ( $options['wrapper'] == 'none' ) {
+			if ( $options['wrapper'] === 'none' ) {
 				$html .= $this->get( $object );
 			} else {
 				$html .= Html::rawElement(
@@ -487,15 +487,7 @@ class AnisaTemplate extends BaseTemplate {
 			'title' => Linker::titleAttrib( $options['id'] ),
 			'aria-labelledby' => $labelId
 		];
-		// @phan-suppress-next-line PhanImpossibleCondition
-		if ( !is_array( $options['class'] ) ) {
-			$class = [ $options['class'] ];
-		}
-		// @phan-suppress-next-line PhanImpossibleCondition
-		if ( !is_array( $options['extra-classes'] ) ) {
-			$extraClasses = [ $options['extra-classes'] ];
-		}
-		$divOptions['class'] = array_merge( $class, $extraClasses );
+		$divOptions['class'] = array_merge( (array)$options['class'], (array)$options['extra-classes'] );
 
 		$labelOptions = [
 			'id' => $labelId,
@@ -586,7 +578,7 @@ class AnisaTemplate extends BaseTemplate {
 		] );
 
 		$iconsHTML = '';
-		if ( count( $validFooterIcons ) > 0 ) {
+		if ( $validFooterIcons ) {
 			$iconsHTML .= Html::openElement( 'ul', [ 'id' => "{$options['link-prefix']}-icons" ] );
 			foreach ( $validFooterIcons as $blockName => $footerIcons ) {
 				$iconsHTML .= Html::openElement( 'li', [
@@ -604,9 +596,9 @@ class AnisaTemplate extends BaseTemplate {
 		}
 
 		$linksHTML = '';
-		if ( count( $validFooterLinks ) > 0 ) {
-			// @phan-suppress-next-line PhanSuspiciousWeakTypeComparison,PhanSuspiciousValueComparison
-			if ( $options['link-style'] == 'flat' ) {
+		if ( $validFooterLinks ) {
+			// @phan-suppress-next-line PhanSuspiciousValueComparison
+			if ( $options['link-style'] === 'flat' ) {
 				$linksHTML .= Html::openElement( 'ul', [
 					'id' => "{$options['link-prefix']}-list",
 					'class' => 'footer-places'
@@ -643,7 +635,7 @@ class AnisaTemplate extends BaseTemplate {
 		}
 
 		// @phan-suppress-next-line PhanSuspiciousValueComparison
-		if ( $options['order'] == 'iconsfirst' ) {
+		if ( $options['order'] === 'iconsfirst' ) {
 			$html .= $iconsHTML . $linksHTML;
 		} else {
 			$html .= $linksHTML . $iconsHTML;
