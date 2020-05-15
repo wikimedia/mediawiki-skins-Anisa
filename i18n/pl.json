@@ -5,6 +5,6 @@
 			"Railfail536"
 		]
 	},
-	"anisa-userpage": "{{GENDER:$1|Strona użytkownika|Strona użytkowniczki}}",
-	"anisa-talkpage": "{{GENDER:$1|Dyskusja użytkownika|Dyskusja użytkowniczki}}"
+	"anisa-userpage": "Strona użytkownika",
+	"anisa-talkpage": "Dyskusja użytkownika"
 }
