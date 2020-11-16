@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Facenapalm",
+			"Helpau",
 			"Okras",
 			"Romanko Mikhail"
 		]
 	},
+	"skinname-anisa": "Anisa",
 	"anisa-desc": "Простая MonoBook-подобная тема из прошлого, воскресая благодаря коту.",
 	"anisa-userpage": "Страница участника",
 	"anisa-talkpage": "Страница обсуждения"
