@@ -253,7 +253,7 @@ class AnisaTemplate extends BaseTemplate {
 					$html .= $this->getSearch();
 					break;
 				case 'TOOLBOX':
-					$html .= $this->getPortlet( 'tb', $this->getToolbox(), 'toolbox' );
+					$html .= $this->getPortlet( 'tb', $this->data['sidebar']['TOOLBOX'], 'toolbox' );
 					break;
 				case 'LANGUAGES':
 					if ( $this->data['language_urls'] !== false ) {
@@ -427,9 +427,7 @@ class AnisaTemplate extends BaseTemplate {
 			// makeListItem options
 			'list-item' => [ 'text-wrapper' => [ 'tag' => 'span' ] ],
 			// option to stick arbitrary stuff at the beginning of the ul
-			'list-prepend' => '',
-			// old toolbox hook support (use: [ 'SkinTemplateToolboxEnd' => [ &$skin, true ] ])
-			'hooks' => ''
+			'list-prepend' => ''
 		];
 
 		// Handle the different $msg possibilities
@@ -460,20 +458,6 @@ class AnisaTemplate extends BaseTemplate {
 			$contentText .= $options['list-prepend'];
 			foreach ( $content as $key => $item ) {
 				$contentText .= $this->makeListItem( $key, $item, $options['list-item'] );
-			}
-			// Compatibility with extensions still using SkinTemplateToolboxEnd or similar
-			// @phan-suppress-next-line PhanImpossibleCondition
-			if ( is_array( $options['hooks'] ) ) {
-				foreach ( $options['hooks'] as $hook ) {
-					if ( is_string( $hook ) ) {
-						$hookOptions = [];
-					} else {
-						// it should only be an array otherwise
-						$hookOptions = array_values( $hook )[0];
-						$hook = array_keys( $hook )[0];
-					}
-					$contentText .= $this->deprecatedHookHack( $hook, $hookOptions );
-				}
 			}
 
 			$contentText .= Html::closeElement( 'ul' );
@@ -517,28 +501,6 @@ class AnisaTemplate extends BaseTemplate {
 		);
 
 		return $html;
-	}
-
-	/**
-	 * Wrapper to catch output of old hooks expecting to write directly to page
-	 * We no longer do things that way.
-	 *
-	 * @param string $hook event
-	 * @param array $hookOptions args
-	 *
-	 * @return string html
-	 */
-	protected function deprecatedHookHack( $hook, $hookOptions = [] ) {
-		$hookContents = '';
-		ob_start();
-		Hooks::run( $hook, $hookOptions );
-		$hookContents = ob_get_contents();
-		ob_end_clean();
-		if ( !trim( $hookContents ) ) {
-			$hookContents = '';
-		}
-
-		return $hookContents;
 	}
 
 	/**

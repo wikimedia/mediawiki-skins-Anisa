@@ -8,10 +8,26 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
-		"MediaWiki": ">= 1.34.0"
+		"MediaWiki": ">= 1.35.0"
 	},
 	"ValidSkinNames": {
-		"anisa": "Anisa"
+		"anisa": {
+			"displayname": "Anisa",
+			"class": "SkinAnisa",
+			"args": [
+				{
+					"name": "anisa",
+					"responsive": "true",
+					"styles": [
+						"skins.anisa",
+						"mediawiki.skinning.content.externallinks"
+					],
+					"scripts": [
+						"skins.anisa.js"
+					]
+				}
+			]
+		}
 	},
 	"MessagesDirs": {
 		"Anisa": [
@@ -20,11 +36,20 @@
 	},
 	"ResourceModules": {
 		"skins.anisa": {
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"class": "ResourceLoaderSkinModule",
+			"features": [
+				"logo",
+				"legacy",
+				"elements",
+				"content",
+				"interface",
+				"normalize"
+			],
 			"styles": {
-				"resources/libraries/normalise.css": {
-					"media": "screen"
-				},
 				"resources/screen-common.less": {
 					"media": "screen"
 				},
@@ -40,6 +65,10 @@
 			}
 		},
 		"skins.anisa.js": {
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": [
 				"resources/main.js"
 			]
