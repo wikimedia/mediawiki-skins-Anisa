@@ -504,7 +504,7 @@ class AnisaTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Better renderer for getFooterIcons and getFooterLinks
+	 * Better renderer for the footer icons and getFooterLinks
 	 *
 	 * @param array $setOptions Miscellaneous other options
 	 * * 'id' for footer id
@@ -512,7 +512,6 @@ class AnisaTemplate extends BaseTemplate {
 	 *   practice we currently only check if it is or isn't 'iconsfirst'
 	 * * 'link-prefix' to set the prefix for all link and block ids; most skins use 'f' or 'footer',
 	 *   as in id='f-whatever' vs id='footer-whatever'
-	 * * 'icon-style' to pass to getFooterIcons: "icononly", "nocopyright"
 	 * * 'link-style' to pass to getFooterLinks: "flat" to disable categorisation of links in a
 	 *   nested array
 	 *
@@ -524,11 +523,10 @@ class AnisaTemplate extends BaseTemplate {
 			'id' => 'footer',
 			'order' => 'iconsfirst',
 			'link-prefix' => 'footer',
-			'icon-style' => 'icononly',
 			'link-style' => null
 		];
 
-		$validFooterIcons = $this->getFooterIcons( $options['icon-style'] );
+		$validFooterIcons = $this->get( 'footericons' );
 		$validFooterLinks = $this->getFooterLinks( $options['link-style'] );
 
 		$html = '';
@@ -542,16 +540,20 @@ class AnisaTemplate extends BaseTemplate {
 
 		$iconsHTML = '';
 		if ( $validFooterIcons ) {
+			$skin = $this->getSkin();
 			$iconsHTML .= Html::openElement( 'ul', [ 'id' => "{$options['link-prefix']}-icons" ] );
-			foreach ( $validFooterIcons as $blockName => $footerIcons ) {
+			foreach ( $validFooterIcons as $blockName => &$footerIcons ) {
 				$iconsHTML .= Html::openElement( 'li', [
 					'id' => Sanitizer::escapeIdForAttribute(
 						"{$options['link-prefix']}-{$blockName}ico"
 					),
 					'class' => 'footer-icons'
 				] );
-				foreach ( $footerIcons as $icon ) {
-					$iconsHTML .= $this->getSkin()->makeFooterIcon( $icon );
+				foreach ( $footerIcons as $footerIconKey => $icon ) {
+					if ( !isset( $icon['src'] ) ) {
+						unset( $footerIcons[$footerIconKey] );
+					}
+					$iconsHTML .= $skin->makeFooterIcon( $icon );
 				}
 				$iconsHTML .= Html::closeElement( 'li' );
 			}
