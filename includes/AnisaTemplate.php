@@ -343,7 +343,7 @@ class AnisaTemplate extends BaseTemplate {
 		}
 
 		// Dropdown header
-		if ( $user->isLoggedIn() ) {
+		if ( $user->isRegistered() ) {
 			$headerMsg = [ 'anisa-loggedinas', $user->getName() ];
 		} else {
 			$headerMsg = [ 'anisa-notloggedin', $user->getName() ];
