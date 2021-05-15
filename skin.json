@@ -41,14 +41,14 @@
 				"mobile"
 			],
 			"class": "ResourceLoaderSkinModule",
-			"features": [
-				"logo",
-				"legacy",
-				"elements",
-				"content",
-				"interface",
-				"normalize"
-			],
+			"features": {
+				"logo": true,
+				"legacy": true,
+				"elements": true,
+				"content": true,
+				"interface": true,
+				"normalize": true
+			},
 			"styles": {
 				"resources/screen-common.less": {
 					"media": "screen"
