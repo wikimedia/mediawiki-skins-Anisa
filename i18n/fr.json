@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
-			"Wladek92"
+			"Wladek92",
+			"Verdy p"
 		]
 	},
+	"skinname-anisa": "Anisa",
 	"anisa-desc": "Un simple habillage semblable à MonoBook des âges passés, ressuscité à cause de cat.",
 	"anisa-userpage": "Page utilisateur",
 	"anisa-talkpage": "Page de discussion"
