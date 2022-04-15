@@ -1,4 +1,5 @@
 {
+	"name": "Anisa",
 	"private": true,
 	"scripts": {
 		"test": "grunt test"
