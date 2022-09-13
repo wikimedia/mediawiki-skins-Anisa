@@ -10,7 +10,6 @@ class AnisaTemplate extends BaseTemplate {
 	 */
 	public function execute() {
 		$html = '';
-		$html .= $this->get( 'headelement' );
 
 		$html .= Html::rawElement( 'div', [ 'id' => 'mw-wrapper' ],
 			Html::rawElement( 'div', [ 'id' => 'column-content' ],
@@ -94,10 +93,6 @@ class AnisaTemplate extends BaseTemplate {
 				)
 			)
 		);
-
-		$html .= $this->getTrail();
-		$html .= Html::closeElement( 'body' );
-		$html .= Html::closeElement( 'html' );
 
 		echo $html;
 	}
@@ -489,10 +484,10 @@ class AnisaTemplate extends BaseTemplate {
 			}
 			$body = Html::rawElement( $options['body-wrapper'], $bodyDivOptions,
 				$contentText .
-				$this->getAfterPortlet( $name )
+				$this->getSkin()->getAfterPortlet( $name )
 			);
 		} else {
-			$body = $contentText . $this->getAfterPortlet( $name );
+			$body = $contentText . $this->getSkin()->getAfterPortlet( $name );
 		}
 
 		$html = Html::rawElement( 'div', $divOptions,
