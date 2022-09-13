@@ -13,11 +13,13 @@
 	"ValidSkinNames": {
 		"anisa": {
 			"displayname": "Anisa",
-			"class": "SkinAnisa",
+			"class": "SkinTemplate",
 			"args": [
 				{
 					"name": "anisa",
 					"responsive": "true",
+					"template": "AnisaTemplate",
+					"bodyOnly": true,
 					"styles": [
 						"skins.anisa",
 						"mediawiki.skinning.content.externallinks"
@@ -43,9 +45,15 @@
 			"class": "ResourceLoaderSkinModule",
 			"features": {
 				"logo": true,
-				"legacy": true,
+				"content-links": true,
+				"interface-message-box": true,
+				"interface-category": true,
+				"content-tables": true,
+				"i18n-ordered-lists": true,
+				"i18n-all-lists-margins": true,
+				"i18n-headings": true,
 				"elements": true,
-				"content": true,
+				"content-media": true,
 				"interface": true,
 				"normalize": true
 			},
@@ -84,7 +92,6 @@
 		"remoteSkinPath": "Anisa"
 	},
 	"AutoloadClasses": {
-		"SkinAnisa": "includes/SkinAnisa.php",
 		"AnisaTemplate": "includes/AnisaTemplate.php"
 	},
 	"manifest_version": 1
