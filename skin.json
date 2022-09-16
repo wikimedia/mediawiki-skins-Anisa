@@ -21,8 +21,7 @@
 					"template": "AnisaTemplate",
 					"bodyOnly": true,
 					"styles": [
-						"skins.anisa",
-						"mediawiki.skinning.content.externallinks"
+						"skins.anisa"
 					],
 					"scripts": [
 						"skins.anisa.js"
@@ -46,6 +45,7 @@
 			"features": {
 				"logo": true,
 				"content-links": true,
+				"content-links-external": true,
 				"interface-message-box": true,
 				"interface-category": true,
 				"content-tables": true,
