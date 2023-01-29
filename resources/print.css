@@ -1,9 +1,15 @@
 /* Styles for print view and printing */
 
-/* Hide some extra stuff from print view (some of the navigation is already hidden automatically, but not all) */
+/* Hide some extra stuff from print view */
+#column-navigation,
+#user-tools,
+#page-tools,
+#p-search,
 .mw-indicators,
 #p-logo,
 #catlinks,
-#mw-footer {
+#mw-footer,
+#footer-icons,
+#footer-places {
 	display: none;
 }
