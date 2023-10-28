@@ -4,6 +4,9 @@
  *
  * @ingroup Skins
  */
+
+use MediaWiki\MediaWikiServices;
+
 class AnisaTemplate extends BaseTemplate {
 	/**
 	 * Outputs the entire contents of the page
@@ -176,7 +179,9 @@ class AnisaTemplate extends BaseTemplate {
 	 */
 	protected function getBanner( $id = 'p-banner' ) {
 		$language = $this->getSkin()->getLanguage();
-		$siteTitle = $language->convert( $this->getMsg( 'sitetitle' )->escaped() );
+		$langConv = MediaWikiServices::getInstance()->getLanguageConverterFactory()
+					->getLanguageConverter( $language );
+		$siteTitle = $langConv->convert( $this->getMsg( 'sitetitle' )->escaped() );
 
 		$html = Html::rawElement(
 			'a',
