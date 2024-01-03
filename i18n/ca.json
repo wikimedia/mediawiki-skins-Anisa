@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido"
+			"Fitoschido",
+			"SMP"
 		]
 	},
+	"anisa-desc": "Una aparença simple basada en el MonoBook de fa anys, ressucitada perquè gats.",
 	"anisa-userpage": "Pàgina d’usuari",
 	"anisa-talkpage": "Pàgina de discussió"
 }
