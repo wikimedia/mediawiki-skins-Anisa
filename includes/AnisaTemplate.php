@@ -354,7 +354,7 @@ class AnisaTemplate extends BaseTemplate {
 		$html .= Html::openElement( 'div', [ 'id' => 'user-tools' ] );
 
 		// Extra icon/outside stuff (echo etc)
-		if ( !empty( $extraTools ) ) {
+		if ( $extraTools ) {
 			$iconList = '';
 			foreach ( $extraTools as $key => $item ) {
 				$iconList .= $this->makeListItem( $key, $item );
@@ -443,7 +443,7 @@ class AnisaTemplate extends BaseTemplate {
 		}
 		$msgObj = $this->getMsg( $msg );
 		if ( $msgObj->exists() ) {
-			if ( isset( $msgParams ) && !empty( $msgParams ) ) {
+			if ( isset( $msgParams ) && $msgParams ) {
 				$msgString = $this->getMsg( $msg, $msgParams )->parse();
 			} else {
 				$msgString = $msgObj->parse();
