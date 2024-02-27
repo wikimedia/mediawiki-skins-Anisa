@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dj",
 			"Tacsipacsi"
 		]
 	},
+	"anisa-desc": "Egy egyszerű MonoBook-szerű felület a múltból, feltámadt, mert egy macska.",
 	"anisa-userpage": "Felhasználói lap",
 	"anisa-talkpage": "Vitalap"
 }
