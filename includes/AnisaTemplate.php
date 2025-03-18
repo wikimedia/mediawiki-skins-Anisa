@@ -5,6 +5,8 @@
  * @ingroup Skins
  */
 
+use MediaWiki\Html\Html;
+use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
 
 class AnisaTemplate extends BaseTemplate {
