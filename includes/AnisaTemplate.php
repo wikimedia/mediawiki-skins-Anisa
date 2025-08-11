@@ -393,7 +393,6 @@ class AnisaTemplate extends BaseTemplate {
 		$html = '';
 
 		if ( $this->data[$object] ) {
-			// @phan-suppress-next-line PhanSuspiciousValueComparison
 			if ( $options['wrapper'] === 'none' ) {
 				$html .= $this->get( $object );
 			} else {
@@ -485,10 +484,8 @@ class AnisaTemplate extends BaseTemplate {
 			'dir' => $this->get( 'dir' )
 		];
 
-		// @phan-suppress-next-line PhanSuspiciousValueComparison
 		if ( $options['body-wrapper'] !== 'none' ) {
 			$bodyDivOptions = [ 'class' => $options['body-class'] ];
-			// @phan-suppress-next-line PhanImpossibleCondition
 			if ( is_string( $options['body-id'] ) ) {
 				$bodyDivOptions['id'] = $options['body-id'];
 			}
@@ -567,7 +564,6 @@ class AnisaTemplate extends BaseTemplate {
 
 		$linksHTML = '';
 		if ( $validFooterLinks ) {
-			// @phan-suppress-next-line PhanSuspiciousValueComparison
 			if ( $options['link-style'] === 'flat' ) {
 				$linksHTML .= Html::openElement( 'ul', [
 					'id' => "{$options['link-prefix']}-list",
@@ -604,7 +600,6 @@ class AnisaTemplate extends BaseTemplate {
 			}
 		}
 
-		// @phan-suppress-next-line PhanSuspiciousValueComparison
 		if ( $options['order'] === 'iconsfirst' ) {
 			$html .= $iconsHTML . $linksHTML;
 		} else {
