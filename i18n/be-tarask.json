@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Red Winged Duck"
+			"Red Winged Duck",
+			"Ucukor"
 		]
 	},
-	"anisa-desc": "Простая MonoBook-падобная тэма афармленьня з даўніх часоў, адноўленая з-за ката.",
+	"anisa-desc": "Простая MonoBook-падобная тэма афармленьня з даўніх часоў, уваскросла праз ката.",
 	"anisa-userpage": "Старонка ўдзельніка",
 	"anisa-talkpage": "Старонка размоваў"
 }
