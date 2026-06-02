@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
-			"Hedda"
+			"Hedda",
+			"HakanIST"
 		]
 	},
+	"anisa-prefs-talkpage": "[[mw:Skin talk:Anisa|{{int:talk}}]]",
+	"skinname-anisa": "Anisa",
 	"anisa-desc": "Geçmiş zamanlardan kalma MonoBook benzeri basit bir tema.",
 	"anisa-userpage": "Kullanıcı sayfası",
 	"anisa-talkpage": "Tartışma sayfası"
