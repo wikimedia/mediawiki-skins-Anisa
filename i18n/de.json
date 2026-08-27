@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Metalhead64"
+			"Metalhead64",
+			"Brettchenweber",
+			"Justman10000"
 		]
 	},
-	"anisa-desc": "Eine einfache monobookähnliche Benutzeroberfläche aus vergangenen Zeiten, wiederbelebt, jedoch Katze.",
+	"anisa-desc": "Eine einfache MonoBook-ähnliche Benutzeroberfläche aus vergangenen Zeiten, wiederbelebt, weil darum.",
 	"anisa-userpage": "Benutzerseite",
 	"anisa-talkpage": "Diskussionsseite"
 }
