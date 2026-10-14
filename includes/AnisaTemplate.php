@@ -284,7 +284,7 @@ class AnisaTemplate extends BaseTemplate {
 		// Usually rendered as tabs on the top of the page.
 		$html = $this->getPortlet(
 			'namespaces',
-			$this->data['content_navigation']['namespaces']
+			$this->data['content_navigation']['associated-pages']
 		);
 		// Variants: Language variants. Displays list for converting between different scripts in the same language,
 		// if using a language where this is applicable.
@@ -319,7 +319,15 @@ class AnisaTemplate extends BaseTemplate {
 	 */
 	protected function getUserLinks() {
 		$user = $this->getSkin()->getUser();
-		$personalTools = $this->getPersonalTools();
+		$contentNav = $this->get( 'content_navigation' );
+		$personalTools = $this->getSkin()->getPersonalToolsForMakeListItem(
+			array_merge(
+				$contentNav['user-interface-preferences'],
+				$contentNav['user-page'],
+				$contentNav['notifications'],
+				$contentNav['user-menu']
+			)
+		);
 
 		$html = '';
 		$extraTools = [];
